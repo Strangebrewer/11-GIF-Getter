@@ -1,6 +1,6 @@
 window.onload = function () {
 
-  var btnArray = ["Tyrion Lannister", "Daenerys Targaryen", "Jon Snow", "Cersei Lannister", "Arya Stark", "Jaime Lannister", "Tormund Giantsbane", "White Walkers", "King in the North"];
+  var btnArray = ["House Lannister", "Daenerys Targaryen", "Jon Snow", "King's Landing", "House Stark", "Kingslayer", "Wildlings", "White Walkers", "King in the North"];
   var results;
 
   $("#btn-container").on("click", ".gif-btn", function () {
@@ -14,7 +14,7 @@ window.onload = function () {
       method: "GET"
     }).then(function (response) {
       results = response.data;
-      for (i = 0; i < results.length; i++) { 
+      for (i = 0; i < results.length; i++) {
         var gifDiv = $("<div>");
         var imgRating = $("<p>").text("Rating: " + results[i].rating);
         var gifImage = $("<img>");
@@ -40,18 +40,22 @@ window.onload = function () {
   });
 
   $("#form-btn").on("click", function () {
-    if ($("#new-btn").val() === "") {
-      alert("You cannot create an empty button. Please try again.");
-    } else if ($("#new-btn").val().trim() === "") {
-      alert("You must enter more than just spaces. Please try again.");
-    } else if ((btnArray.includes($("#new-btn").val()))) {
-      alert("That button already exists. Please try again.");
-      $("#new-btn").val("");
+    var duplicate;
+    for (i = 0; i < btnArray.length; i++) {
+      if (btnArray[i].toLowerCase() === $("#new-btn-text").val().toLowerCase()) {
+        duplicate = btnArray[i].toLowerCase();
+      }
+    }
+
+    if ($("#new-btn-text").val().trim() === "") {
+      $("#new-btn-text").val("");
+    } else if (duplicate === $("#new-btn-text").val().toLowerCase()) {
+      $("#new-btn-text").val("");
     } else {
-      btnArray.push($("#new-btn").val().trim());
+      btnArray.push($("#new-btn-text").val().trim());
       $("#btn-container").html("");
       createButtons();
-      $("#new-btn").val("");
+      $("#new-btn-text").val("");
     }
   });
 
@@ -60,7 +64,7 @@ window.onload = function () {
       var btn = $("<button>");
       btn.attr("class", "gif-btn");
       btn.text(btnArray[i]);
-      $("#btn-container").prepend(btn);
+      $("#btn-container").append(btn);
     };
   };
 

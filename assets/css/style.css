@@ -29,7 +29,7 @@ header {
 
 #new-btn-form {
   float: left;
-  min-width: 300px;
+  min-width: 250px;
   padding-left: 30px;
 }
 
@@ -51,19 +51,28 @@ h1 {
 
 .btn-wrapper {
   grid-column: 1;
-  max-width: 300px;
+  max-width: 250px;
 }
 
 #btn-container {
   display: flex;
   flex-wrap: wrap;
-  min-width: 300px;
+  min-width: 250px;
   padding-left: 30px;
 }
 
 #new-btn-form label,
 #new-btn-form input {
   display: block;
+}
+
+#new-btn-text {
+  margin: 5px 0;
+  width: 100%;
+}
+
+#form-btn {
+  margin: 5px 0;
 }
 
 .gif-btn {
@@ -75,17 +84,12 @@ h1 {
   color: #ffa500;
   float: left;
   margin-top: 20px;
-  text-shadow: 0 5px 5px #888;
   width: 100px;
 }
 
 .gif-btn:hover {
   color: #ff6347;
-}
-
-.gif-btn:active {
-  transform: translateY(3px);
-  text-shadow: 0 2px 5px #888;
+  text-decoration: underline;
 }
 
 .app-container {
