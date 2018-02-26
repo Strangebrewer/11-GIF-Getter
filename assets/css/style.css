@@ -91,7 +91,6 @@ h1 {
 .app-container {
   grid-column: 2;
   position: relative;
-  margin: auto;
   padding: 0 20px;
 }
 
