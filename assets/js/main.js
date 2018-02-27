@@ -39,7 +39,8 @@ window.onload = function () {
     }
   });
 
-  $("#form-btn").on("click", function () {
+  $("#form-btn").on("click", function (event) {
+    event.preventDefault();
     var duplicate;
     for (i = 0; i < btnArray.length; i++) {
       if (btnArray[i].toLowerCase() === $("#new-btn-text").val().toLowerCase()) {
