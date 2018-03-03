@@ -113,15 +113,15 @@ h1 {
 
 .shield-container {
   grid-column: 3;
-  grid-template-columns: repeat(8, 25px);
-  grid-template-rows: repeat(10, 50px);
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  padding-bottom: 80px;
   padding-right: 50px;
   min-width: 200px;
-  padding-top: 35px;
 }
 
 .shield {
-  height: 60px;
+  height: 30px;
 }
 
 #arryn-shield {
